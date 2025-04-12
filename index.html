@@ -355,19 +355,49 @@
     <h2>InvoiceController</h2>
     <div class="route-list">
         <div class="card">
-            <span class="route">/invoice/generate</span>
+            <span class="route">/invoice/generate/:orderId</span>
             <span class="method">POST</span>
             <p class="description">Génère une facture pour une transaction spécifique.</p>
         </div>
         <div class="card">
-            <span class="route">/invoice/:invoiceId</span>
+            <span class="route">/invoice/download/:invoiceId</span>
             <span class="method">GET</span>
-            <p class="description">Retourne une facture spécifique par son ID.</p>
+            <p class="description">Télécharge la facture associée à un ID de facture spécifique.</p>
         </div>
         <div class="card">
-            <span class="route">/invoice/user/:userId</span>
+            <span class="route">/invoice/all</span>
             <span class="method">GET</span>
-            <p class="description">Retourne toutes les factures d'un utilisateur.</p>
+            <p class="description">Retourne toutes les factures du système.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/me/all</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les factures de l'utilisateur connecté.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/invoiceId/:invoiceId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne une facture spécifique par son ID de facture.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/validate/:invoiceId</span>
+            <span class="method">PUT</span>
+            <p class="description">Valide une facture spécifique (approuve son paiement).</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/delete/invoice/:invoiceId</span>
+            <span class="method">DELETE</span>
+            <p class="description">Supprime une facture spécifique par son ID.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/order/:orderId/me</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne la facture liée à une commande spécifique de l'utilisateur connecté.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/me/status/:status</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les factures d'un utilisateur avec un statut spécifique.</p>
         </div>
     </div>
 </section>
