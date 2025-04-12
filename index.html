@@ -313,42 +313,58 @@
             </div>
         </section>
 
-    <!-- TransactionController -->
+<!-- TransactionController -->
 <section>
     <h2>TransactionController</h2>
     <div class="route-list">
         <div class="card">
             <span class="route">/transaction/create</span>
             <span class="method">POST</span>
-            <p class="description">Crée une nouvelle transaction (commande).</p>
+            <p class="description">Crée une nouvelle transaction (commande) pour un acheteur connecté.</p>
         </div>
         <div class="card">
             <span class="route">/transaction/seller/confirm/product</span>
             <span class="method">PUT</span>
-            <p class="description">Confirme une transaction de produit par le vendeur.</p>
+            <p class="description">Permet au vendeur de confirmer la transaction d'un produit en fonction de l'ID de la commande et de l'ID du produit.</p>
         </div>
         <div class="card">
-            <span class="route">/transaction/buyer/confirm</span>
+            <span class="route">/transaction/cancel/id=:orderId</span>
             <span class="method">PUT</span>
-            <p class="description">Confirme la réception du produit par l'acheteur.</p>
+            <p class="description">Annule une commande spécifique pour un acheteur (basée sur l'ID de la commande).</p>
         </div>
         <div class="card">
-            <span class="route">/transaction/cancel</span>
-            <span class="method">PUT</span>
-            <p class="description">Annule une transaction en cours.</p>
-        </div>
-        <div class="card">
-            <span class="route">/transaction/complete</span>
-            <span class="method">PUT</span>
-            <p class="description">Marque la transaction comme complétée.</p>
-        </div>
-        <div class="card">
-            <span class="route">/transaction/user/:userId</span>
+            <span class="route">/transaction/all-orders</span>
             <span class="method">GET</span>
-            <p class="description">Retourne toutes les transactions d'un utilisateur spécifique.</p>
+            <p class="description">Retourne toutes les commandes (réservé aux administrateurs).</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/me/all-orders</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les commandes de l'utilisateur connecté (acheteur).</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/me/all-orders/:status</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les commandes de l'utilisateur connecté avec un statut spécifique (par exemple, "en cours", "livré", etc.).</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/me/all-orders/id/:orderId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne une commande spécifique de l'utilisateur connecté en utilisant l'ID de la commande.</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/me/seller/products/in/all_orders</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne les produits d'un vendeur présents dans toutes les commandes.</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/approve-order-item</span>
+            <span class="method">PUT</span>
+            <p class="description">Permet au vendeur d'approuver ou de rejeter un produit dans une commande spécifique en fonction de la décision (approuver ou rejeter) et des IDs de produit et de commande.</p>
         </div>
     </div>
 </section>
+
 
 <!-- InvoiceController -->
 <section>
