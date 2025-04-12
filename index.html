@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Routes de l'Application</title>
+    <style>
+        /* Styles de base */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2C3E50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            padding: 5px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #16A085;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .route-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .route {
+            font-size: 1.1em;
+            color: #8E44AD;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .method {
+            font-weight: bold;
+            color: #E74C3C;
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+        }
+
+        .description {
+            font-size: 0.95em;
+            color: #7f8c8d;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .route-list {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Liste des Routes de l'Application</h1>
+
+        <!-- AuthController -->
+        <section>
+            <h2>AuthController</h2>
+            <div class="route-list">
+                <div class="card">
+                    <span class="route">/auth</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne l'état de l'authentification (session en cours).</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/signin/buyer</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un acheteur de se connecter à l'application.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/signup/buyer</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un acheteur de s'inscrire.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/signin/seller</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un vendeur de se connecter à l'application.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/signup/seller</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un vendeur de s'inscrire.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/signin/admin</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un administrateur de se connecter.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/logout</span>
+                    <span class="method">POST</span>
+                    <p class="description">Déconnecte l'utilisateur actuellement connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/session</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne les informations de session de l'utilisateur connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/send-email</span>
+                    <span class="method">POST</span>
+                    <p class="description">Envoie un email de vérification ou de réinitialisation de mot de passe.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/reset-password</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un utilisateur de réinitialiser son mot de passe.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/auth/me/admin/signup</span>
+                    <span class="method">POST</span>
+                    <p class="description">Permet à un administrateur de s'inscrire.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- UsersController -->
+        <section>
+            <h2>UsersController</h2>
+            <div class="route-list">
+                <div class="card">
+                    <span class="route">/users</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne la liste de tous les utilisateurs.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/:user_id</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne les informations d'un utilisateur spécifique.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/me/info</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne les informations de l'utilisateur connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/me/role</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne le rôle de l'utilisateur connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/:user_id</span>
+                    <span class="method">DELETE</span>
+                    <p class="description">Supprime un utilisateur spécifique.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/me/account</span>
+                    <span class="method">DELETE</span>
+                    <p class="description">Supprime le compte de l'utilisateur connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/me/account</span>
+                    <span class="method">PUT</span>
+                    <p class="description">Met à jour les informations du compte de l'utilisateur connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/:user_id</span>
+                    <span class="method">PUT</span>
+                    <p class="description">Met à jour les informations d'un utilisateur spécifique.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/set-role/:user_id</span>
+                    <span class="method">PUT</span>
+                    <p class="description">Assigne un rôle à un utilisateur spécifique.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/connected/products</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne les produits de l'utilisateur connecté.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/users/connected/products/sold</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne les produits vendus par l'utilisateur connecté.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ProductsController -->
+        <section>
+            <h2>ProductsController</h2>
+            <div class="route-list">
+                <div class="card">
+                    <span class="route">/products/add-product</span>
+                    <span class="method">POST</span>
+                    <p class="description">Ajoute un nouveau produit à la base de données.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/available/all</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne tous les produits disponibles.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/all</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne tous les produits.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/pending/all</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne tous les produits en attente d'approbation.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/admin/approved/product=:productId</span>
+                    <span class="method">PUT</span>
+                    <p class="description">Approuve un produit pour qu'il soit visible.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/id=:productId</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne un produit spécifique par son ID.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/category=:name</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne les produits d'une catégorie spécifique.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/all-category</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne toutes les catégories de produits.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/products/id=:productId</span>
+                    <span class="method">DELETE</span>
+                    <p class="description">Supprime un produit spécifique par son ID.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CartController -->
+        <section>
+            <h2>CartController</h2>
+            <div class="route-list">
+                <div class="card">
+                    <span class="route">/cart/add-item/product=:productId</span>
+                    <span class="method">POST</span>
+                    <p class="description">Ajoute un produit au panier de l'utilisateur.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/cart/delete-item/product=:productId</span>
+                    <span class="method">DELETE</span>
+                    <p class="description">Supprime un produit du panier de l'utilisateur.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/cart/clear</span>
+                    <span class="method">DELETE</span>
+                    <p class="description">Vider le panier de l'utilisateur.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/cart/update-item/product=:productId</span>
+                    <span class="method">PUT</span>
+                    <p class="description">Met à jour la quantité d'un produit dans le panier de l'utilisateur.</p>
+                </div>
+                <div class="card">
+                    <span class="route">/cart/me</span>
+                    <span class="method">GET</span>
+                    <p class="description">Retourne le panier de l'utilisateur connecté.</p>
+                </div>
+            </div>
+        </section>
+
+    <!-- TransactionController -->
+<section>
+    <h2>TransactionController</h2>
+    <div class="route-list">
+        <div class="card">
+            <span class="route">/transaction/create</span>
+            <span class="method">POST</span>
+            <p class="description">Crée une nouvelle transaction (commande).</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/seller/confirm/product</span>
+            <span class="method">PUT</span>
+            <p class="description">Confirme une transaction de produit par le vendeur.</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/buyer/confirm</span>
+            <span class="method">PUT</span>
+            <p class="description">Confirme la réception du produit par l'acheteur.</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/cancel</span>
+            <span class="method">PUT</span>
+            <p class="description">Annule une transaction en cours.</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/complete</span>
+            <span class="method">PUT</span>
+            <p class="description">Marque la transaction comme complétée.</p>
+        </div>
+        <div class="card">
+            <span class="route">/transaction/user/:userId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les transactions d'un utilisateur spécifique.</p>
+        </div>
+    </div>
+</section>
+
+<!-- InvoiceController -->
+<section>
+    <h2>InvoiceController</h2>
+    <div class="route-list">
+        <div class="card">
+            <span class="route">/invoice/generate</span>
+            <span class="method">POST</span>
+            <p class="description">Génère une facture pour une transaction spécifique.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/:invoiceId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne une facture spécifique par son ID.</p>
+        </div>
+        <div class="card">
+            <span class="route">/invoice/user/:userId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les factures d'un utilisateur.</p>
+        </div>
+    </div>
+</section>
+
+<!-- AddressController -->
+<section>
+    <h2>AddressController</h2>
+    <div class="route-list">
+        <div class="card">
+            <span class="route">/address/add</span>
+            <span class="method">POST</span>
+            <p class="description">Ajoute une nouvelle adresse pour l'utilisateur.</p>
+        </div>
+        <div class="card">
+            <span class="route">/address/:addressId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne les détails d'une adresse spécifique.</p>
+        </div>
+        <div class="card">
+            <span class="route">/address/user/:userId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les adresses d'un utilisateur.</p>
+        </div>
+        <div class="card">
+            <span class="route">/address/:addressId</span>
+            <span class="method">PUT</span>
+            <p class="description">Met à jour les informations d'une adresse spécifique.</p>
+        </div>
+        <div class="card">
+            <span class="route">/address/:addressId</span>
+            <span class="method">DELETE</span>
+            <p class="description">Supprime une adresse spécifique.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ReviewController -->
+<section>
+    <h2>ReviewController</h2>
+    <div class="route-list">
+        <div class="card">
+            <span class="route">/review/add</span>
+            <span class="method">POST</span>
+            <p class="description">Ajoute une revue pour un produit spécifique.</p>
+        </div>
+        <div class="card">
+            <span class="route">/review/product/:productId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les revues d'un produit spécifique.</p>
+        </div>
+        <div class="card">
+            <span class="route">/review/user/:userId</span>
+            <span class="method">GET</span>
+            <p class="description">Retourne toutes les revues laissées par un utilisateur spécifique.</p>
+        </div>
+        <div class="card">
+            <span class="route">/review/:reviewId</span>
+            <span class="method">DELETE</span>
+            <p class="description">Supprime une revue spécifique.</p>
+        </div>
+    </div>
+</section>
+
+</div>
+
+</body>
+</html>
+
